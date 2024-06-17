@@ -1,16 +1,7 @@
-import GeneralInfo from "./GeneralInfo";
-import WorkInfo from "./WorkInfo";
-import EducationInfo from "./EducationInfo";
 import "../styles/LivePreview.css";
 
-function LivePreview() {
-  return (
-    <div className="livePreview">
-      <GeneralInfo />
-      <WorkInfo />
-      <EducationInfo />
-    </div>
-  );
+function LivePreview({ children }) {
+  return <div className="livePreview">{children}</div>;
 }
 
 export default LivePreview;

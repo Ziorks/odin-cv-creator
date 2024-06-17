@@ -1,11 +1,13 @@
 import "../styles/EducationInfoEntry.css";
 
-function EducationInfoEntry() {
+function EducationInfoEntry({ data }) {
   return (
     <div className="educationInfoEntry">
-      <p>Degree in Field of Study June 2024 - Present</p>
-      <p className="schoolInfo">School Name at Location</p>
-      <p>Description</p>
+      <p>
+        {`${data.degree} in ${data.field} ${data.startDate} - ${data.endDate}`}
+      </p>
+      <p className="schoolInfo">{`${data.school} at ${data.location}`}</p>
+      <p>{data.details}</p>
     </div>
   );
 }

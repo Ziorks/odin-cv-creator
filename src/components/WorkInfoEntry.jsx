@@ -1,14 +1,14 @@
 import "../styles/WorkInfoEntry.css";
 
-function WorkInfoEntry() {
+function WorkInfoEntry({ data }) {
   return (
     <div className="workInfoEntry">
-      <p className="title">Job Title</p>
+      <p className="title">{data.position}</p>
       <div className="details">
-        <p>Company Name, City, State</p>
-        <p>June 2024 - Present</p>
+        <p>{`${data.company}, ${data.city}, ${data.state}`}</p>
+        <p>{`${data.startDate} - ${data.endDate}`}</p>
       </div>
-      <p className="summary">Work summary</p>
+      <p className="summary">{data.summary}</p>
     </div>
   );
 }

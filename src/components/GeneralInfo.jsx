@@ -3,32 +3,26 @@ import { GiPositionMarker } from "react-icons/gi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import "../styles/GeneralInfo.css";
 
-function GeneralInfo() {
+function GeneralInfo({ data }) {
   return (
     <div className="generalInfo">
       <div className="left">
-        <p className="name">First Name</p>
-        <p className="name">Last Name</p>
-        <p className="title">Job Title</p>
+        <p className="name">{data.firstName}</p>
+        <p className="name">{data.lastName}</p>
+        <p className="title">{data.jobTitle}</p>
       </div>
       <div className="right">
         <p>
-          <span>
-            <GiPositionMarker /> Address
-          </span>
-          |
-          <span>
-            <MdOutlinePhone /> phone #
-          </span>
+          <GiPositionMarker /> {data.address} | <MdOutlinePhone /> {data.phone}
         </p>
         <p>
-          email@example.com <MdOutlineMail />
+          {data.email} <MdOutlineMail />
         </p>
         <p>
-          link@github.com <FaGithub />
+          {data.github} <FaGithub />
         </p>
         <p>
-          link@linkedin.com <FaLinkedin />
+          {data.linkedin} <FaLinkedin />
         </p>
       </div>
     </div>

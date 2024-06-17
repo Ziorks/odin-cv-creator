@@ -1,12 +1,10 @@
-import WorkInfoEntry from "./WorkInfoEntry";
 import "../styles/WorkInfo.css";
 
-function WorkInfo() {
+function WorkInfo({ children }) {
   return (
     <div className="workInfo">
       <p className="heading">Professional Experience</p>
-      <WorkInfoEntry />
-      <WorkInfoEntry />
+      {children}
     </div>
   );
 }
