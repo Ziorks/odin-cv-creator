@@ -1,9 +1,9 @@
 import { FaChevronUp } from "react-icons/fa";
-import "../styles/FormContainer.css";
+import "../styles/InputSection.css";
 
-function FormContainer({ title, isActive, children }) {
+function InputSection({ title, isActive, children }) {
   return (
-    <div className="formContainer">
+    <div className="inputSection">
       <button type="button" className="expandBtn">
         <h2 className="title">{title}</h2>
         <FaChevronUp
@@ -15,4 +15,4 @@ function FormContainer({ title, isActive, children }) {
   );
 }
 
-export default FormContainer;
+export default InputSection;

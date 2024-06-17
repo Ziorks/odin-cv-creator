@@ -1,4 +1,4 @@
-import FormContainer from "./FormContainer";
+import InputSection from "./InputSection";
 import GeneralInfoForm from "./GeneralInfoForm";
 import WorkInfoForm from "./WorkInfoForm";
 import EducationInfoForm from "./EducationInfoForm";
@@ -29,15 +29,15 @@ function InputContainer() {
 
   return (
     <div className="inputContainer">
-      <FormContainer title={personalDetailsTitle} isActive={true}>
+      <InputSection title={personalDetailsTitle} isActive={true}>
         <GeneralInfoForm />
-      </FormContainer>
-      <FormContainer title={experienceTitle} isActive={true}>
+      </InputSection>
+      <InputSection title={experienceTitle} isActive={true}>
         <WorkInfoForm />
-      </FormContainer>
-      <FormContainer title={educationTitle} isActive={true}>
+      </InputSection>
+      <InputSection title={educationTitle} isActive={true}>
         <EducationInfoForm />
-      </FormContainer>
+      </InputSection>
     </div>
   );
 }

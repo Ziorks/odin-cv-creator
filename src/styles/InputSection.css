@@ -1,9 +1,9 @@
-.formContainer {
+.inputSection {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
-.formContainer > .expandBtn {
+.inputSection > .expandBtn {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,16 +17,16 @@
   font-size: 1rem;
 }
 
-.formContainer > .expandBtn > .title {
+.inputSection > .expandBtn > .title {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.formContainer > .expandBtn > .activeIndicator {
+.inputSection > .expandBtn > .activeIndicator {
   transition: transform 250ms;
 }
 
-.formContainer > .expandBtn > .activeIndicator.active {
+.inputSection > .expandBtn > .activeIndicator.active {
   transform: rotate(180deg);
 }
