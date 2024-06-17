@@ -1,0 +1,6 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: sans-serif;
+}

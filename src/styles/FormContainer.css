@@ -1,0 +1,32 @@
+.formContainer {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.formContainer > .expandBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  appearance: none;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.formContainer > .expandBtn > .title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formContainer > .expandBtn > .activeIndicator {
+  transition: transform 250ms;
+}
+
+.formContainer > .expandBtn > .activeIndicator.active {
+  transform: rotate(180deg);
+}

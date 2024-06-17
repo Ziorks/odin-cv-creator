@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import LivePreview from "./LivePreview";
-import FormContainer from "./FormContainer";
+import InputContainer from "./InputContainer";
 import "../styles/App.css";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <>
       <Header />
       <main className="main">
-        <FormContainer />
+        <InputContainer />
         <LivePreview />
       </main>
       <Footer />

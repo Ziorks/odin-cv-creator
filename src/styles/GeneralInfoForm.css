@@ -1,0 +1,36 @@
+.generalInfoForm {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.generalInfoForm > .group {
+  display: flex;
+  gap: 1rem;
+}
+.generalInfoForm > .group > div {
+  flex: 1;
+}
+
+.generalInfoForm label {
+  display: block;
+  font-weight: bold;
+  margin: 0 0 4px 8px;
+}
+
+.generalInfoForm input {
+  display: block;
+  width: 100%;
+  border: 1px solid transparent;
+  box-shadow: none;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: rgba(218, 218, 218, 0.5);
+  transition: box-shadow 250ms;
+}
+
+.generalInfoForm input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 162, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.3);
+}
