@@ -1,0 +1,23 @@
+.generalInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.generalInfo .name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.generalInfo .title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.generalInfo > .right > * {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 0.8rem;
+}

@@ -1,4 +1,9 @@
 .livePreview {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 4rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   min-height: 792px;
+  font-family: sans-serif;
 }
