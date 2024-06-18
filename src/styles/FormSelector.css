@@ -14,7 +14,6 @@
   transition: box-shadow 250ms;
 }
 
-.formSelector > .addBtn:focus,
 .formSelector > .addBtn:hover {
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 162, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.3);

@@ -1,5 +1,6 @@
 .formSelection {
-  padding: 1rem;
+  margin: 0.5rem 0;
+  padding: 0 1rem;
   display: flex;
   gap: 16px;
 }
@@ -41,9 +42,7 @@
 }
 
 .formSelection > .name > button:hover,
-.formSelection > .actions > button:hover,
-.formSelection > .name > button:focus,
-.formSelection > .actions > button:focus {
+.formSelection > .actions > button:hover {
   outline: none;
   background-color: rgb(230, 230, 230);
   box-shadow: 0 0 0 2px rgba(0, 162, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.3);
