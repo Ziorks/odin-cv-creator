@@ -1,20 +1,20 @@
-.generalInfo {
+.personalInfo {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.generalInfo .name {
+.personalInfo .name {
   font-size: 2rem;
   font-weight: bold;
 }
 
-.generalInfo .title {
+.personalInfo .title {
   font-size: 1.3rem;
   font-weight: bold;
 }
 
-.generalInfo > .right > * {
+.personalInfo > .right > * {
   display: flex;
   align-items: center;
   justify-content: flex-end;

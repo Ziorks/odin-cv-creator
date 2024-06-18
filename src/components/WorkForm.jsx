@@ -1,8 +1,9 @@
-import "../styles/WorkInfoForm.css";
+import FormButtons from "./FormButtons";
+import "../styles/WorkForm.css";
 
-function WorkInfoForm({ data }) {
+function WorkForm({ data }) {
   return (
-    <div className="workInfoForm">
+    <div className="workForm">
       <div>
         <label htmlFor="position">Position Title</label>
         <input
@@ -45,8 +46,9 @@ function WorkInfoForm({ data }) {
         <label htmlFor="summary">Work Summary</label>
         <textarea rows={3} name="summary" id="summary" value={data.summary} />
       </div>
+      <FormButtons />
     </div>
   );
 }
 
-export default WorkInfoForm;
+export default WorkForm;

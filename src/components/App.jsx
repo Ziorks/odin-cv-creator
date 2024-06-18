@@ -4,11 +4,11 @@ import InputContainer from "./InputContainer";
 import InputSection from "./InputSection";
 import FormSelector from "./FormSelector";
 import FormSelection from "./FormSelection";
-import GeneralInfoForm from "./GeneralInfoForm";
-import WorkInfoForm from "./WorkInfoForm";
-import EducationInfoForm from "./EducationInfoForm";
+import PersonalForm from "./PersonalForm";
+import WorkForm from "./WorkForm";
+import EducationForm from "./EducationForm";
 import LivePreview from "./LivePreview";
-import GeneralInfo from "./GeneralInfo";
+import PersonalInfo from "./PersonalInfo";
 import WorkInfo from "./WorkInfo";
 import WorkInfoEntry from "./WorkInfoEntry";
 import EducationInfo from "./EducationInfo";
@@ -91,7 +91,7 @@ function App() {
             icon={<IoPersonCircle />}
             name="Personal Details"
             isActive={activeInputSection === 0}>
-            <GeneralInfoForm data={generalData} />
+            <PersonalForm data={generalData} />
           </InputSection>
           <InputSection
             icon={<IoBriefcase />}
@@ -104,7 +104,7 @@ function App() {
                 ))}
               </FormSelector>
             ) : (
-              <WorkInfoForm data={experienceData[activeExperienceForm]} />
+              <WorkForm data={experienceData[activeExperienceForm]} />
             )}
           </InputSection>
           <InputSection
@@ -118,12 +118,12 @@ function App() {
                 ))}
               </FormSelector>
             ) : (
-              <EducationInfoForm data={educationData[0]} />
+              <EducationForm data={educationData[0]} />
             )}
           </InputSection>
         </InputContainer>
         <LivePreview>
-          <GeneralInfo data={generalData} />
+          <PersonalInfo data={generalData} />
           <WorkInfo>
             {experienceData.map(
               (entry) =>

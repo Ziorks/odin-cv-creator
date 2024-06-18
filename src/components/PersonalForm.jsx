@@ -1,8 +1,9 @@
-import "../styles/GeneralInfoForm.css";
+import FormButtons from "./FormButtons";
+import "../styles/PersonalForm.css";
 
-function GeneralInfoForm({ data }) {
+function PersonalForm({ data }) {
   return (
-    <div className="generalInfoForm">
+    <div className="personalForm">
       <div className="group">
         <div>
           <label htmlFor="firstName">First Name</label>
@@ -61,8 +62,9 @@ function GeneralInfoForm({ data }) {
           />
         </div>
       </div>
+      <FormButtons />
     </div>
   );
 }
 
-export default GeneralInfoForm;
+export default PersonalForm;

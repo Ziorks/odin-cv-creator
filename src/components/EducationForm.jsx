@@ -1,8 +1,9 @@
-import "../styles/EducationInfoForm.css";
+import FormButtons from "./FormButtons";
+import "../styles/EducationForm.css";
 
-function EducationInfoForm({ data }) {
+function EducationForm({ data }) {
   return (
-    <div className="educationInfoForm">
+    <div className="educationForm">
       <div>
         <label htmlFor="school">School</label>
         <input type="text" name="school" id="school" value={data.school} />
@@ -50,8 +51,9 @@ function EducationInfoForm({ data }) {
         <label htmlFor="details">Additional Details</label>
         <textarea rows={3} name="details" id="details" value={data.details} />
       </div>
+      <FormButtons />
     </div>
   );
 }
 
-export default EducationInfoForm;
+export default EducationForm;
