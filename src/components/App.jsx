@@ -2,6 +2,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import InputContainer from "./InputContainer";
 import InputSection from "./InputSection";
+import FormSelector from "./FormSelector";
+import FormSelection from "./FormSelection";
 import GeneralInfoForm from "./GeneralInfoForm";
 import WorkInfoForm from "./WorkInfoForm";
 import EducationInfoForm from "./EducationInfoForm";
@@ -35,6 +37,7 @@ const experienceData = [
     startDate: "June 2024",
     endDate: "Present",
     summary: "Work summary",
+    hidden: true,
   },
   {
     id: crypto.randomUUID(),
@@ -45,6 +48,7 @@ const experienceData = [
     startDate: "June 2024",
     endDate: "Present",
     summary: "Work summary",
+    hidden: false,
   },
 ];
 
@@ -58,6 +62,7 @@ const educationData = [
     startDate: "June 2024",
     endDate: "Present",
     details: "Additional details",
+    hidden: false,
   },
   {
     id: crypto.randomUUID(),
@@ -68,29 +73,13 @@ const educationData = [
     startDate: "June 2024",
     endDate: "Present",
     details: "Additional details",
+    hidden: false,
   },
 ];
 
-const personalDetailsTitle = (
-  <>
-    <IoPersonCircle />
-    Personal Details
-  </>
-);
-
-const experienceTitle = (
-  <>
-    <IoBriefcase />
-    Experience
-  </>
-);
-
-const educationTitle = (
-  <>
-    <IoSchool />
-    Education
-  </>
-);
+let activeInputSection = 0;
+let activeExperienceForm = 1;
+let activeEducationForm = 0;
 
 function App() {
   return (
@@ -98,29 +87,56 @@ function App() {
       <Header />
       <main className="main">
         <InputContainer>
-          <InputSection title={personalDetailsTitle} isActive={true}>
+          <InputSection
+            icon={<IoPersonCircle />}
+            name="Personal Details"
+            isActive={activeInputSection === 0}>
             <GeneralInfoForm data={generalData} />
           </InputSection>
-          <InputSection title={experienceTitle} isActive={true}>
-            {/* TODO: Display a list of all experienceData entries */}
-            <WorkInfoForm data={experienceData[0]} />
+          <InputSection
+            icon={<IoBriefcase />}
+            name="Experience"
+            isActive={activeInputSection === 1}>
+            {activeExperienceForm === null ? (
+              <FormSelector type="Experience">
+                {experienceData.map(({ id, position, hidden }) => (
+                  <FormSelection key={id} name={position} isHidden={hidden} />
+                ))}
+              </FormSelector>
+            ) : (
+              <WorkInfoForm data={experienceData[activeExperienceForm]} />
+            )}
           </InputSection>
-          <InputSection title={educationTitle} isActive={true}>
-            {/* TODO: Display a list of all educationData entries */}
-            <EducationInfoForm data={educationData[0]} />
+          <InputSection
+            icon={<IoSchool />}
+            name="Education"
+            isActive={activeInputSection === 2}>
+            {activeEducationForm === null ? (
+              <FormSelector type="Education">
+                {educationData.map(({ id, school, hidden }) => (
+                  <FormSelection key={id} name={school} isHidden={hidden} />
+                ))}
+              </FormSelector>
+            ) : (
+              <EducationInfoForm data={educationData[0]} />
+            )}
           </InputSection>
         </InputContainer>
         <LivePreview>
           <GeneralInfo data={generalData} />
           <WorkInfo>
-            {experienceData.map((entry) => (
-              <WorkInfoEntry key={entry.id} data={entry} />
-            ))}
+            {experienceData.map(
+              (entry) =>
+                !entry.hidden && <WorkInfoEntry key={entry.id} data={entry} />
+            )}
           </WorkInfo>
           <EducationInfo>
-            {educationData.map((entry) => (
-              <EducationInfoEntry key={entry.id} data={entry} />
-            ))}
+            {educationData.map(
+              (entry) =>
+                !entry.hidden && (
+                  <EducationInfoEntry key={entry.id} data={entry} />
+                )
+            )}
           </EducationInfo>
         </LivePreview>
       </main>

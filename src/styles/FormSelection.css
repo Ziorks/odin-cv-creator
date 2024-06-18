@@ -1,0 +1,50 @@
+.formSelection {
+  padding: 1rem;
+  display: flex;
+  gap: 16px;
+}
+
+.formSelection > .name {
+  flex: 1;
+}
+
+.formSelection > .name,
+.formSelection > .actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formSelection > .name > .grabber {
+  cursor: grab;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.formSelection > .name > button {
+  flex: 1;
+  text-align: left;
+  font-weight: bold;
+}
+
+.formSelection > .name > button,
+.formSelection > .actions > button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  transition: box-shadow 250ms;
+}
+
+.formSelection > .name > button:hover,
+.formSelection > .actions > button:hover,
+.formSelection > .name > button:focus,
+.formSelection > .actions > button:focus {
+  outline: none;
+  background-color: rgb(230, 230, 230);
+  box-shadow: 0 0 0 2px rgba(0, 162, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.3);
+}
