@@ -1,10 +1,10 @@
 import { FaChevronUp } from "react-icons/fa";
 import "../styles/InputSection.css";
 
-function InputSection({ icon = undefined, name, isActive, children }) {
+function InputSection({ icon = undefined, name, isActive, onClick, children }) {
   return (
     <div className="inputSection">
-      <button type="button" className="expandBtn">
+      <button type="button" className="expandBtn" onClick={onClick}>
         <h2 className="title">
           {icon}
           {name}
