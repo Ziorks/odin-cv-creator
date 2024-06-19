@@ -1,14 +1,14 @@
-import PersonalInfo from "./PersonalInfo";
-import WorkInfo from "./WorkInfo";
-import EducationInfo from "./EducationInfo";
+import Personal from "./Personal";
+import Experience from "./Experience";
+import Education from "./Education";
 import "../styles/LivePreview.css";
 
 function LivePreview() {
   return (
     <div className="livePreview">
-      <PersonalInfo />
-      <WorkInfo />
-      <EducationInfo />
+      <Personal />
+      <Experience />
+      <Education />
     </div>
   );
 }

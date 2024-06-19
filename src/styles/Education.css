@@ -1,28 +1,28 @@
 /* Form */
 
-.workForm {
+.educationForm {
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.workForm > .group {
+.educationForm > .group {
   display: flex;
   gap: 1rem;
 }
-.workForm > .group > div {
+.educationForm > .group > div {
   flex: 1;
 }
 
-.workForm label {
+.educationForm label {
   display: block;
   font-weight: bold;
   margin: 0 0 4px 8px;
 }
 
-.workForm input,
-.workForm textarea {
+.educationForm input,
+.educationForm textarea {
   display: block;
   width: 100%;
   border: none;
@@ -33,36 +33,46 @@
   transition: box-shadow 250ms;
 }
 
-.workForm textarea {
+.educationForm textarea {
   resize: vertical;
 }
 
-.workForm input:focus,
-.workForm textarea:focus {
+.educationForm input:focus,
+.educationForm textarea:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 162, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Info */
+/* Display */
 
-.workInfo {
+.educationDisplay {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.workInfo > .heading {
+.educationDisplay > .heading {
   font-weight: bold;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
 }
 
-.workInfo > .heading::after {
+.educationDisplay > .heading::after {
   display: block;
   content: "";
   height: 3px;
   background-color: black;
   flex: 1;
   margin-left: 1rem;
+}
+
+/* Display Entry */
+
+.educationDisplayEntry {
+  font-size: 0.8rem;
+}
+
+.educationDisplayEntry > .schoolInfo {
+  margin-bottom: 4px;
 }
