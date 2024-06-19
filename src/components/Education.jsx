@@ -2,34 +2,9 @@ import FormSelector from "./FormSelector";
 import FormButtons from "./FormButtons";
 import "../styles/Education.css";
 
-const data = [
-  {
-    id: crypto.randomUUID(),
-    school: "School Name 0",
-    location: "Location",
-    degree: "Degree",
-    field: "Field of Study",
-    startDate: "June 2024",
-    endDate: "Present",
-    details: "Additional details",
-    hidden: false,
-  },
-  {
-    id: crypto.randomUUID(),
-    school: "School Name 1",
-    location: "Location",
-    degree: "Degree",
-    field: "Field of Study",
-    startDate: "June 2024",
-    endDate: "Present",
-    details: "Additional details",
-    hidden: false,
-  },
-];
-
 let activeEntryIndex = null;
 
-function Education({ form = false }) {
+function Education({ form = false, data }) {
   const activeEntry = data[activeEntryIndex];
 
   if (form && activeEntryIndex === null) {

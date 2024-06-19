@@ -4,20 +4,9 @@ import { GiPositionMarker } from "react-icons/gi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import "../styles/Personal.css";
 
-const data = {
-  firstName: "First Name",
-  lastName: "Last Name",
-  jobTitle: "Job Title",
-  address: "Address",
-  phone: "Phone",
-  email: "email@example.com",
-  github: "github.com/link",
-  linkedin: "linkedin.com/link",
-};
-
-function Personal({ form = false }) {
+function Personal({ form = false, data, setters = undefined }) {
   if (form) {
-    return <PersonalForm data={data} />;
+    return <PersonalForm data={data} setters={setters} />;
   } else {
     return <PersonalDisplay data={data} />;
   }
@@ -49,7 +38,9 @@ function PersonalDisplay({ data }) {
   );
 }
 
-function PersonalForm({ data, onChange }) {
+function PersonalForm({ data, setters }) {
+  const setTemp = setters.temp;
+
   return (
     <div className="personalForm">
       <div className="group">
@@ -60,7 +51,7 @@ function PersonalForm({ data, onChange }) {
             name="firstName"
             id="firstName"
             value={data.firstName}
-            onChange={(e) => onChange("firstName", e.target.value)}
+            onChange={(e) => setTemp({ ...data, firstName: e.target.value })}
           />
         </div>
         <div>
@@ -70,6 +61,7 @@ function PersonalForm({ data, onChange }) {
             name="lastName"
             id="lastName"
             value={data.lastName}
+            onChange={(e) => setTemp({ ...data, lastName: e.target.value })}
           />
         </div>
       </div>
@@ -80,26 +72,51 @@ function PersonalForm({ data, onChange }) {
           name="jobTitle"
           id="jobTitle"
           value={data.jobTitle}
+          onChange={(e) => setTemp({ ...data, jobTitle: e.target.value })}
         />
       </div>
       <div>
         <label htmlFor="address">Address</label>
-        <input type="text" name="address" id="address" value={data.address} />
+        <input
+          type="text"
+          name="address"
+          id="address"
+          value={data.address}
+          onChange={(e) => setTemp({ ...data, address: e.target.value })}
+        />
       </div>
       <div className="group">
         <div>
           <label htmlFor="phone">Phone Number</label>
-          <input type="tel" name="phone" id="phone" value={data.phone} />
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            value={data.phone}
+            onChange={(e) => setTemp({ ...data, phone: e.target.value })}
+          />
         </div>
         <div>
           <label htmlFor="email">E-mail Address</label>
-          <input type="email" name="email" id="email" value={data.email} />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={data.email}
+            onChange={(e) => setTemp({ ...data, email: e.target.value })}
+          />
         </div>
       </div>
       <div className="group">
         <div>
           <label htmlFor="github">Github Link</label>
-          <input type="url" name="github" id="github" value={data.github} />
+          <input
+            type="url"
+            name="github"
+            id="github"
+            value={data.github}
+            onChange={(e) => setTemp({ ...data, github: e.target.value })}
+          />
         </div>
         <div>
           <label htmlFor="linkedin">LinkedIn Link</label>
@@ -108,10 +125,11 @@ function PersonalForm({ data, onChange }) {
             name="linkedin"
             id="linkedin"
             value={data.linkedin}
+            onChange={(e) => setTemp({ ...data, linkedin: e.target.value })}
           />
         </div>
       </div>
-      <FormButtons />
+      <FormButtons onCancel={setters.cancel} onSave={setters.save} />
     </div>
   );
 }

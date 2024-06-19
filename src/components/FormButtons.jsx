@@ -1,10 +1,14 @@
 import "../styles/FormButtons.css";
 
-function FormButtons() {
+function FormButtons({ onCancel, onSave }) {
   return (
     <div className="formButtons">
-      <button className="cancelBtn">Cancel</button>
-      <button className="saveBtn">Save</button>
+      <button className="cancelBtn" onClick={onCancel}>
+        Cancel
+      </button>
+      <button className="saveBtn" onClick={onSave}>
+        Save
+      </button>
     </div>
   );
 }

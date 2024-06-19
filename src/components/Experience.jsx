@@ -2,35 +2,11 @@ import FormSelector from "./FormSelector";
 import FormButtons from "./FormButtons";
 import "../styles/Experience.css";
 
-const data = [
-  {
-    id: crypto.randomUUID(),
-    position: "Position Title 0",
-    company: "Company Name",
-    city: "City",
-    state: "State",
-    startDate: "June 2024",
-    endDate: "Present",
-    summary: "Work summary",
-    hidden: false,
-  },
-  {
-    id: crypto.randomUUID(),
-    position: "Position Title 1",
-    company: "Hidden Company",
-    city: "City",
-    state: "State",
-    startDate: "June 2024",
-    endDate: "Present",
-    summary: "Work summary",
-    hidden: true,
-  },
-];
-
 let activeEntryIndex = null;
 
-function Experience({ form = false }) {
+function Experience({ form = false, data }) {
   const activeEntry = data[activeEntryIndex];
+
   if (form && activeEntryIndex === null) {
     return <ExperienceEntrySelector data={data} />;
   } else if (form) {
@@ -40,7 +16,7 @@ function Experience({ form = false }) {
   }
 }
 
-function ExperienceEntrySelector() {
+function ExperienceEntrySelector({ data }) {
   return (
     <FormSelector
       type="Experience"
