@@ -76,7 +76,7 @@ function Main() {
   const [activeInputSection, setActiveInputSection] = useState(null);
 
   const datas = [personalSaved, experienceSaved, educationSaved];
-  const tempDatas = [personalTemp, experienceSaved, educationSaved];
+  const tempDatas = [personalTemp, experienceTemp, educationTemp];
 
   //This is jank but works if activeInputSection is set to the index it appears in datas/tempDatas
   if (activeInputSection !== null) {
@@ -92,39 +92,72 @@ function Main() {
       }
     },
     personal: {
-      saved: setPersonalSaved,
-      temp: setPersonalTemp,
-      cancel: () => {
+      setTemp: setPersonalTemp,
+      cancelBtn: () => {
         setActiveInputSection(null);
         setPersonalTemp({ ...personalSaved });
       },
-      save: () => {
+      saveBtn: () => {
         setActiveInputSection(null);
         setPersonalSaved({ ...personalTemp });
       },
     },
     experience: {
-      saved: setExperienceSaved,
-      temp: setExperienceTemp,
-      cancel: () => {
-        setActiveInputSection(null);
-        setExperienceTemp({ ...experienceSaved });
+      setTemp: (newEntry) => {
+        const newData = experienceTemp.map((entry) => {
+          return entry.id === newEntry.id ? newEntry : entry;
+        });
+        setExperienceTemp(newData);
       },
-      save: () => {
-        setActiveInputSection(null);
-        setExperienceSaved({ ...experienceTemp });
+      deleteEntry: (id) => {
+        const deleted = experienceTemp.filter((entry) => entry.id !== id);
+        setExperienceSaved(deleted);
+        setExperienceTemp(deleted);
+      },
+      toggleHidden: (id) => {
+        const toggled = experienceTemp.map((entry) => {
+          if (entry.id === id) {
+            return { ...entry, hidden: !entry.hidden };
+          }
+          return entry;
+        });
+        setExperienceSaved(toggled);
+        setExperienceTemp(toggled);
+      },
+      cancelBtn: () => {
+        setExperienceTemp([...experienceSaved]);
+      },
+      saveBtn: () => {
+        setExperienceSaved([...experienceTemp]);
       },
     },
     education: {
-      saved: setEducationSaved,
-      temp: setEducationTemp,
-      cancel: () => {
-        setActiveInputSection(null);
-        setEducationTemp({ ...educationSaved });
+      setTemp: (newEntry) => {
+        const newData = educationTemp.map((entry) => {
+          return entry.id === newEntry.id ? newEntry : entry;
+        });
+        setEducationTemp(newData);
       },
-      save: () => {
-        setActiveInputSection(null);
-        setEducationSaved({ ...educationTemp });
+      deleteEntry: (id) => {
+        const deleted = educationTemp.filter((entry) => entry.id !== id);
+        setEducationSaved(deleted);
+        setEducationTemp(deleted);
+      },
+      toggleHidden: (id) => {
+        const toggled = educationTemp.map((entry) => {
+          if (entry.id === id) {
+            return { ...entry, hidden: !entry.hidden };
+          }
+          return entry;
+        });
+        setEducationSaved(toggled);
+        setEducationTemp(toggled);
+      },
+      cancelBtn: () => {
+        setEducationTemp([...educationSaved]);
+      },
+      saveBtn: () => {
+        setEducationSaved([...educationTemp]);
       },
     },
   };

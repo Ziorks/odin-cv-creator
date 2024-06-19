@@ -2,21 +2,24 @@ import FormSelector from "./FormSelector";
 import FormButtons from "./FormButtons";
 import "../styles/Education.css";
 
-let activeEntryIndex = null;
-
-function Education({ form = false, data }) {
+function Education({
+  form = false,
+  data,
+  setters = undefined,
+  activeEntryIndex,
+}) {
   const activeEntry = data[activeEntryIndex];
 
   if (form && activeEntryIndex === null) {
-    return <EducationEntrySelector data={data} />;
+    return <EducationEntrySelector data={data} setters={setters} />;
   } else if (form) {
-    return <EducationForm entry={activeEntry} />;
+    return <EducationForm entry={activeEntry} setters={setters} />;
   } else {
     return <EducationDisplay data={data} />;
   }
 }
 
-function EducationEntrySelector({ data }) {
+function EducationEntrySelector({ data, setters }) {
   return (
     <FormSelector
       type="Education"
@@ -24,7 +27,8 @@ function EducationEntrySelector({ data }) {
         id,
         name: school,
         isHidden: hidden,
-      }))}></FormSelector>
+      }))}
+      setters={setters}></FormSelector>
   );
 }
 
@@ -54,12 +58,28 @@ function EducationDisplayEntry({ entry }) {
   );
 }
 
-function EducationForm({ entry }) {
+function EducationForm({ entry, setters }) {
+  const { setTemp } = setters;
+  const handleCancel = () => {
+    setters.clear();
+    setters.cancelBtn();
+  };
+  const handleSave = () => {
+    setters.clear();
+    setters.saveBtn();
+  };
+
   return (
     <div className="educationForm">
       <div>
         <label htmlFor="school">School</label>
-        <input type="text" name="school" id="school" value={entry.school} />
+        <input
+          type="text"
+          name="school"
+          id="school"
+          value={entry.school}
+          onChange={(e) => setTemp({ ...entry, school: e.target.value })}
+        />
       </div>
       <div>
         <label htmlFor="location">Location</label>
@@ -68,12 +88,19 @@ function EducationForm({ entry }) {
           name="location"
           id="location"
           value={entry.location}
+          onChange={(e) => setTemp({ ...entry, location: e.target.value })}
         />
       </div>
       <div className="group">
         <div>
           <label htmlFor="degree">Degree</label>
-          <input type="text" name="degree" id="degree" value={entry.degree} />
+          <input
+            type="text"
+            name="degree"
+            id="degree"
+            value={entry.degree}
+            onChange={(e) => setTemp({ ...entry, degree: e.target.value })}
+          />
         </div>
         <div>
           <label htmlFor="fieldOfStudy">Field of Study</label>
@@ -82,6 +109,7 @@ function EducationForm({ entry }) {
             name="fieldOfStudy"
             id="fieldOfStudy"
             value={entry.field}
+            onChange={(e) => setTemp({ ...entry, field: e.target.value })}
           />
         </div>
       </div>
@@ -93,6 +121,7 @@ function EducationForm({ entry }) {
             name="startDate"
             id="startDate"
             value={entry.startDate}
+            onChange={(e) => setTemp({ ...entry, startDate: e.target.value })}
           />
         </div>
         <div>
@@ -102,14 +131,21 @@ function EducationForm({ entry }) {
             name="endDate"
             id="endDate"
             value={entry.endDate}
+            onChange={(e) => setTemp({ ...entry, endDate: e.target.value })}
           />
         </div>
       </div>
       <div>
         <label htmlFor="details">Additional Details</label>
-        <textarea rows={3} name="details" id="details" value={entry.details} />
+        <textarea
+          rows={3}
+          name="details"
+          id="details"
+          value={entry.details}
+          onChange={(e) => setTemp({ ...entry, details: e.target.value })}
+        />
       </div>
-      <FormButtons />
+      <FormButtons onCancel={handleCancel} onSave={handleSave} />
     </div>
   );
 }

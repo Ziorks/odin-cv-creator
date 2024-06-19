@@ -39,7 +39,7 @@ function PersonalDisplay({ data }) {
 }
 
 function PersonalForm({ data, setters }) {
-  const setTemp = setters.temp;
+  const { setTemp } = setters;
 
   return (
     <div className="personalForm">
@@ -129,7 +129,7 @@ function PersonalForm({ data, setters }) {
           />
         </div>
       </div>
-      <FormButtons onCancel={setters.cancel} onSave={setters.save} />
+      <FormButtons onCancel={setters.cancelBtn} onSave={setters.saveBtn} />
     </div>
   );
 }

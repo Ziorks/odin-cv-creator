@@ -7,11 +7,17 @@ import {
 } from "react-icons/fa";
 import "../styles/FormSelector.css";
 
-function FormSelector({ type, selections }) {
+function FormSelector({ type, selections, setters }) {
   return (
     <div className="formSelector">
       {selections.map(({ id, name, isHidden }) => (
-        <FormSelection key={id} name={name} isHidden={isHidden} />
+        <FormSelection
+          key={id}
+          id={id}
+          name={name}
+          isHidden={isHidden}
+          setters={setters}
+        />
       ))}
       <button className="addBtn" type="button">
         <FaPlus />
@@ -21,20 +27,24 @@ function FormSelector({ type, selections }) {
   );
 }
 
-function FormSelection({ name, isHidden }) {
+function FormSelection({ id, name, isHidden, setters }) {
+  const { entrySelect, deleteEntry, toggleHidden } = setters;
+
   return (
     <div className="formSelection">
       <div className="name">
         <div className="grabber">
           <FaAlignJustify />
         </div>
-        <button>{name}</button>
+        <button onClick={() => entrySelect(id)}>{name}</button>
       </div>
       <div className="actions">
-        <button>
+        <button onClick={() => deleteEntry(id)}>
           <FaTrashAlt />
         </button>
-        <button>{isHidden ? <FaRegEyeSlash /> : <FaRegEye />}</button>
+        <button onClick={() => toggleHidden(id)}>
+          {isHidden ? <FaRegEyeSlash /> : <FaRegEye />}
+        </button>
       </div>
     </div>
   );
