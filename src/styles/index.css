@@ -3,3 +3,30 @@
   margin: 0;
   padding: 0;
 }
+
+@media print {
+  @page {
+    margin: 4rem;
+  }
+
+  .header,
+  .footer,
+  .inputContainer,
+  .livePreview > .printBtn {
+    display: none;
+  }
+
+  .main {
+    padding: 0;
+    margin: 0;
+    display: block;
+  }
+
+  .livePreview > .preview {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-shadow: unset;
+    print-color-adjust: exact;
+  }
+}
