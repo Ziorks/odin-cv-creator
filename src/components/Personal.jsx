@@ -22,16 +22,18 @@ function PersonalDisplay({ data }) {
       </div>
       <div className="right">
         <p>
-          <GiPositionMarker /> {data.address} | <MdOutlinePhone /> {data.phone}
+          {data.address !== "" && <GiPositionMarker />} {data.address}
+          {data.address !== "" && data.phone !== "" && <span>|</span>}
+          {data.phone !== "" && <MdOutlinePhone />} {data.phone}
         </p>
         <p>
-          {data.email} <MdOutlineMail />
+          {data.email} {data.email !== "" && <MdOutlineMail />}
         </p>
         <p>
-          {data.github} <FaGithub />
+          {data.github} {data.github !== "" && <FaGithub />}
         </p>
         <p>
-          {data.linkedin} <FaLinkedin />
+          {data.linkedin} {data.linkedin !== "" && <FaLinkedin />}
         </p>
       </div>
     </div>
