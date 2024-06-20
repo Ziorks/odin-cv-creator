@@ -17,7 +17,7 @@ const personalTestData = {
 const experienceTestData = [
   {
     id: crypto.randomUUID(),
-    position: "Position Title 0",
+    position: "Position Title",
     company: "Company Name",
     city: "City",
     state: "State",
@@ -28,7 +28,7 @@ const experienceTestData = [
   },
   {
     id: crypto.randomUUID(),
-    position: "Position Title 1",
+    position: "Position Title 2",
     company: "Hidden Company",
     city: "City",
     state: "State",
@@ -42,7 +42,7 @@ const experienceTestData = [
 const educationTestData = [
   {
     id: crypto.randomUUID(),
-    school: "School Name 0",
+    school: "School Name",
     location: "Location",
     degree: "Degree",
     field: "Field of Study",
@@ -53,7 +53,7 @@ const educationTestData = [
   },
   {
     id: crypto.randomUUID(),
-    school: "School Name 1",
+    school: "School Name 2",
     location: "Location",
     degree: "Degree",
     field: "Field of Study",
@@ -124,6 +124,14 @@ function Main() {
         setExperienceSaved(toggled);
         setExperienceTemp(toggled);
       },
+      addBtn: () => {
+        const added = [
+          ...experienceTemp,
+          { ...experienceTestData[0], id: crypto.randomUUID() },
+        ];
+        setExperienceSaved(added);
+        setExperienceTemp(added);
+      },
       cancelBtn: () => {
         setExperienceTemp([...experienceSaved]);
       },
@@ -152,6 +160,14 @@ function Main() {
         });
         setEducationSaved(toggled);
         setEducationTemp(toggled);
+      },
+      addBtn: () => {
+        const added = [
+          ...educationTemp,
+          { ...educationTestData[0], id: crypto.randomUUID() },
+        ];
+        setEducationSaved(added);
+        setEducationTemp(added);
       },
       cancelBtn: () => {
         setEducationTemp([...educationSaved]);

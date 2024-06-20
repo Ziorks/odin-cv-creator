@@ -23,6 +23,10 @@ function InputContainer({ datas, setters }) {
       const entryIndex = experienceData.findIndex((entry) => entry.id === id);
       setActiveExperienceEntryIndex(entryIndex);
     },
+    addBtn: () => {
+      experience.addBtn();
+      setActiveExperienceEntryIndex(experienceData.length);
+    },
   };
 
   const educationSetters = {
@@ -31,6 +35,10 @@ function InputContainer({ datas, setters }) {
     entrySelect: (id) => {
       const entryIndex = educationData.findIndex((entry) => entry.id === id);
       setActiveEducationEntryIndex(entryIndex);
+    },
+    addBtn: () => {
+      education.addBtn();
+      setActiveEducationEntryIndex(educationData.length);
     },
   };
 

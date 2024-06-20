@@ -8,6 +8,8 @@ import {
 import "../styles/FormSelector.css";
 
 function FormSelector({ type, selections, setters }) {
+  const { addBtn } = setters;
+
   return (
     <div className="formSelector">
       {selections.map(({ id, name, isHidden }) => (
@@ -19,7 +21,7 @@ function FormSelector({ type, selections, setters }) {
           setters={setters}
         />
       ))}
-      <button className="addBtn" type="button">
+      <button className="addBtn" type="button" onClick={addBtn}>
         <FaPlus />
         {type}
       </button>
