@@ -4,16 +4,16 @@ import Education from "./Education";
 import { IoPersonCircle, IoSchool, IoBriefcase } from "react-icons/io5";
 import { FaChevronUp } from "react-icons/fa";
 import { useState } from "react";
+import { SECTIONS } from "../utilities/constants";
 import "../styles/InputContainer.css";
 
-function InputContainer({ datas, setters }) {
+function InputContainer({ activeInputSection, datas, setters }) {
   const [activeExperienceEntryIndex, setActiveExperienceEntryIndex] =
     useState(null);
   const [activeEducationEntryIndex, setActiveEducationEntryIndex] =
     useState(null);
 
-  const [personalData, experienceData, educationData, activeInputSection] =
-    datas;
+  const [personalData, experienceData, educationData] = datas;
   const { handleSectionSelect, experience, education } = setters;
 
   const experienceSetters = {
@@ -47,15 +47,15 @@ function InputContainer({ datas, setters }) {
       <InputSection
         icon={<IoPersonCircle />}
         name="Personal Details"
-        isActive={activeInputSection === 0}
-        onClick={() => handleSectionSelect(0)}>
+        isActive={activeInputSection === SECTIONS.personal}
+        onClick={() => handleSectionSelect(SECTIONS.personal)}>
         <Personal form={true} data={personalData} setters={setters.personal} />
       </InputSection>
       <InputSection
         icon={<IoBriefcase />}
         name="Experience"
-        isActive={activeInputSection === 1}
-        onClick={() => handleSectionSelect(1)}>
+        isActive={activeInputSection === SECTIONS.experience}
+        onClick={() => handleSectionSelect(SECTIONS.experience)}>
         <Experience
           form={true}
           data={experienceData}
@@ -66,8 +66,8 @@ function InputContainer({ datas, setters }) {
       <InputSection
         icon={<IoSchool />}
         name="Education"
-        isActive={activeInputSection === 2}
-        onClick={() => handleSectionSelect(2)}>
+        isActive={activeInputSection === SECTIONS.education}
+        onClick={() => handleSectionSelect(SECTIONS.education)}>
         <Education
           form={true}
           data={educationData}
