@@ -33,15 +33,21 @@ function ExperienceEntrySelector({ data, setters }) {
 }
 
 function ExperienceDisplay({ data }) {
+  const entriesToDisplay = [];
+  data.forEach((entry) => {
+    if (!entry.hidden) {
+      entriesToDisplay.push(
+        <ExperienceDisplayEntry key={entry.id} entry={entry} />
+      );
+    }
+  });
+
   return (
     <div className="experienceDisplay">
-      {data.length > 0 && <p className="heading">Professional Experience</p>}
-      {data.map(
-        (entry) =>
-          !entry.hidden && (
-            <ExperienceDisplayEntry key={entry.id} entry={entry} />
-          )
+      {entriesToDisplay.length > 0 && (
+        <p className="heading">Professional Experience</p>
       )}
+      {entriesToDisplay}
     </div>
   );
 }

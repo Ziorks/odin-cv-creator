@@ -33,15 +33,19 @@ function EducationEntrySelector({ data, setters }) {
 }
 
 function EducationDisplay({ data }) {
+  const entriesToDisplay = [];
+  data.forEach((entry) => {
+    if (!entry.hidden) {
+      entriesToDisplay.push(
+        <EducationDisplayEntry key={entry.id} entry={entry} />
+      );
+    }
+  });
+
   return (
     <div className="educationDisplay">
-      {data.length > 0 && <p className="heading">Education</p>}
-      {data.map(
-        (entry) =>
-          !entry.hidden && (
-            <EducationDisplayEntry key={entry.id} entry={entry} />
-          )
-      )}
+      {entriesToDisplay.length > 0 && <p className="heading">Education</p>}
+      {entriesToDisplay}
     </div>
   );
 }
