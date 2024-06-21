@@ -7,7 +7,8 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   background-color: white;
   padding: 0.5rem 2rem;
-  position: sticky;
+  width: 100vw;
+  position: fixed;
   top: 0;
 }
 

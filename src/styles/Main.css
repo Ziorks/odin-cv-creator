@@ -1,6 +1,7 @@
 .main {
   padding: 2rem;
-  margin-bottom: 2rem;
+  margin: 3rem auto 2rem;
+  width: max-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
