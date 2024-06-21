@@ -11,8 +11,7 @@
 
   .header,
   .footer,
-  .inputContainer,
-  .livePreview > .printBtn {
+  .inputContainer {
     display: none;
   }
 
@@ -22,7 +21,7 @@
     display: block;
   }
 
-  .livePreview > .preview {
+  .livePreview {
     margin: 0;
     padding: 0;
     width: 100%;
