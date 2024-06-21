@@ -35,7 +35,7 @@ function EducationEntrySelector({ data, setters }) {
 function EducationDisplay({ data }) {
   return (
     <div className="educationDisplay">
-      <p className="heading">Education</p>
+      {data.length > 0 && <p className="heading">Education</p>}
       {data.map(
         (entry) =>
           !entry.hidden && (

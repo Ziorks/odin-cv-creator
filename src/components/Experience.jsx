@@ -35,7 +35,7 @@ function ExperienceEntrySelector({ data, setters }) {
 function ExperienceDisplay({ data }) {
   return (
     <div className="experienceDisplay">
-      <p className="heading">Professional Experience</p>
+      {data.length > 0 && <p className="heading">Professional Experience</p>}
       {data.map(
         (entry) =>
           !entry.hidden && (
