@@ -3,7 +3,7 @@ import LivePreview from "./LivePreview";
 import { useState } from "react";
 import "../styles/Main.css";
 
-const personalTestData = {
+const personalDataTemplate = {
   firstName: "First Name",
   lastName: "Last Name",
   jobTitle: "Job Title",
@@ -14,8 +14,8 @@ const personalTestData = {
   linkedin: "linkedin.com/link",
 };
 
-const experienceTestData = [
-  {
+const getNewExperienceDataEntry = () => {
+  return {
     id: crypto.randomUUID(),
     position: "Position Title",
     company: "Company Name",
@@ -25,22 +25,11 @@ const experienceTestData = [
     endDate: "Present",
     summary: "Work summary",
     hidden: false,
-  },
-  {
-    id: crypto.randomUUID(),
-    position: "Position Title 2",
-    company: "Hidden Company",
-    city: "City",
-    state: "State",
-    startDate: "June 2024",
-    endDate: "Present",
-    summary: "Work summary",
-    hidden: true,
-  },
-];
+  };
+};
 
-const educationTestData = [
-  {
+const getNewEducationDataEntry = () => {
+  return {
     id: crypto.randomUUID(),
     school: "School Name",
     location: "Location",
@@ -50,28 +39,25 @@ const educationTestData = [
     endDate: "Present",
     details: "Additional details",
     hidden: false,
-  },
-  {
-    id: crypto.randomUUID(),
-    school: "School Name 2",
-    location: "Location",
-    degree: "Degree",
-    field: "Field of Study",
-    startDate: "June 2024",
-    endDate: "Present",
-    details: "Additional details",
-    hidden: false,
-  },
+  };
+};
+
+const experienceDataTemplate = [
+  getNewExperienceDataEntry(),
+  getNewExperienceDataEntry(),
 ];
+const educationDataTemplate = [getNewEducationDataEntry()];
 
 function Main() {
-  const [personalSaved, setPersonalSaved] = useState(personalTestData);
-  const [experienceSaved, setExperienceSaved] = useState(experienceTestData);
-  const [educationSaved, setEducationSaved] = useState(educationTestData);
+  const [personalSaved, setPersonalSaved] = useState(personalDataTemplate);
+  const [experienceSaved, setExperienceSaved] = useState(
+    experienceDataTemplate
+  );
+  const [educationSaved, setEducationSaved] = useState(educationDataTemplate);
 
-  const [personalTemp, setPersonalTemp] = useState(personalTestData);
-  const [experienceTemp, setExperienceTemp] = useState(experienceTestData);
-  const [educationTemp, setEducationTemp] = useState(educationTestData);
+  const [personalTemp, setPersonalTemp] = useState(personalDataTemplate);
+  const [experienceTemp, setExperienceTemp] = useState(experienceDataTemplate);
+  const [educationTemp, setEducationTemp] = useState(educationDataTemplate);
 
   const [activeInputSection, setActiveInputSection] = useState(null);
 
@@ -125,10 +111,7 @@ function Main() {
         setExperienceTemp(toggled);
       },
       addBtn: () => {
-        const added = [
-          ...experienceTemp,
-          { ...experienceTestData[0], id: crypto.randomUUID() },
-        ];
+        const added = [...experienceTemp, getNewExperienceDataEntry()];
         setExperienceSaved(added);
         setExperienceTemp(added);
       },
@@ -162,10 +145,7 @@ function Main() {
         setEducationTemp(toggled);
       },
       addBtn: () => {
-        const added = [
-          ...educationTemp,
-          { ...educationTestData[0], id: crypto.randomUUID() },
-        ];
+        const added = [...educationTemp, getNewEducationDataEntry()];
         setEducationSaved(added);
         setEducationTemp(added);
       },
