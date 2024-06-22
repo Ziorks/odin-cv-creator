@@ -97,6 +97,16 @@ function Main() {
         const deleted = experienceData.saved.filter((entry) => entry.id !== id);
         setExperienceData({ saved: deleted, temp: deleted });
       },
+      reorder: (id, newIndex) => {
+        const entryIndex = experienceData.saved.findIndex(
+          (entry) => entry.id === id
+        );
+        const entry = experienceData.saved[entryIndex];
+        const reordered = [...experienceData.saved];
+        reordered.splice(entryIndex, 1);
+        reordered.splice(newIndex, 0, entry);
+        setExperienceData({ saved: reordered, temp: reordered });
+      },
       toggleHidden: (id) => {
         const toggled = experienceData.saved.map((entry) => {
           if (entry.id === id) {
@@ -127,6 +137,16 @@ function Main() {
       deleteEntry: (id) => {
         const deleted = educationData.saved.filter((entry) => entry.id !== id);
         setEducationData({ saved: deleted, temp: deleted });
+      },
+      reorder: (id, newIndex) => {
+        const entryIndex = educationData.saved.findIndex(
+          (entry) => entry.id === id
+        );
+        const entry = educationData.saved[entryIndex];
+        const reordered = [...educationData.saved];
+        reordered.splice(entryIndex, 1);
+        reordered.splice(newIndex, 0, entry);
+        setEducationData({ saved: reordered, temp: reordered });
       },
       toggleHidden: (id) => {
         const toggled = educationData.saved.map((entry) => {

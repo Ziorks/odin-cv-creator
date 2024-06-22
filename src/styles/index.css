@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+body.grabbing * {
+  cursor: grabbing !important;
+}
+
 @media print {
   @page {
     margin: 4rem;
